@@ -1,0 +1,5 @@
+username: Nam2010  # Username DUCO
+mining_key: 258013  # Khóa mining (null nếu không dùng)
+rig_identifier: Ruby Miner  # Tên rig
+difficulty: PC  # LOW, MEDIUM, NET
+thread_count: 2  # Số luồng (2-4 cho Android)
