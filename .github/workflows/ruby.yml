@@ -1,0 +1,24 @@
+name: Rust
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: '0 * * * *'  # Run every hour
+
+jobs:
+  run-ruby-script:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.3'  # Adjust to your Ruby version; latest stable
+        bundler-cache: true  # Cache gems if using Gemfile
+    - name: Run miner.rb for 1 hour
+      run: timeout 3600 ruby miner.rb || true  # '|| true' to avoid failure on timeout
